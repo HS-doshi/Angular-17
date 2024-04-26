@@ -1,2 +1,11 @@
 <h2>RXJS concept!</h2>
 <button #validate (click)="rxjsEventObservable()">Click Me</button>
+<a href="http://localhost:5000/" #getLink (click)="getEventObservable()">
+Root Link
+</a>
+<h3>Intern List</h3>
+<div>
+  <ul *ngIf="InternData$">
+    <li *ngFor="let item of InternData$">{{item}} </li>
+  </ul>
+</div>
