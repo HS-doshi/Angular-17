@@ -2,3 +2,13 @@
 <div [formGroup]="searchForm">
   <input type="name" formControlName="name" (keyup)="readValue()">
 </div>
+<div *ngFor="let item of users">
+  <li>
+    @for (user of users; track user.name) {
+      {{user.name + '\n' + user.employ}}
+    }
+    <hr/>
+    {{item.name}} - {{item.role}} - {{item.employ}}
+  </li>
+</div>
+<h3>Name - {{names}}</h3>

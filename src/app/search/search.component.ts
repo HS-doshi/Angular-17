@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { debounceTime } from 'rxjs';
+import { Observable, debounceTime, distinct, elementAt, filter, first, from, last, of, skip, take, takeLast, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-search',
@@ -13,18 +13,36 @@ import { debounceTime } from 'rxjs';
 export class SearchComponent implements OnInit{
   searchForm!:FormGroup;
   name!:FormControl;
+  compant =['Wellnest','RoyalNest','Royal','Cheese','RoyalNest','Royal','WellCheese']
+  company$ :Observable<string> = from(this.compant)
+
+  @Input() names =''
   constructor( private formBuilder:FormBuilder){}
   ngOnInit(): void {
     this.searchForm = new FormGroup({
       name : new FormControl('Start Search!')
     })
-    this.searchForm.get('name')?.valueChanges.pipe(
-      debounceTime(1000)
-    ).subscribe(data=>{
-      console.log(data)
+    this.searchForm.get('name')?.valueChanges.pipe()
+    .subscribe(data=>{
+      this.company$.pipe(distinct(),skip(3)).subscribe(data=>{
+        console.log(data)
+      })
+      // distinct will give only unique values.
     })
+  }
+  checkChar(v:any){
+    return v.length < 10 ? true : false
+  }
+  checkCondition(v:any){
+    return v.length > 5 ? false:true
   }
   readValue(){
 
   }
+  users=[
+    {name:'Heet',role:'Frontend Developer', employ : 'Internship'},
+    {name:'Prince',role:'Backend Developer', employ : 'Internship'},
+    {name:'Meet',role:'Frontend Developer', employ : 'Internship'},
+    {name:'Dev',role:'Testing', employ : 'Internship'},
+  ]
 }
