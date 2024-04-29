@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule }
 import { Observable, debounceTime, distinct, elementAt, filter, first, from, last, of, skip, take, takeLast, takeWhile } from 'rxjs';
 import { User } from '../models/user';
 import { CountryPipe } from '../pipe/country.pipe';
+import { HighlightDirective } from '../directive/highlight.directive';
 
 function TransformValue(value:string){
   return value;
@@ -12,7 +13,7 @@ function TransformValue(value:string){
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule, CountryPipe],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule, CountryPipe, HighlightDirective],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
@@ -33,8 +34,18 @@ export class SearchComponent implements OnInit{
 
   @Output() myEvent = new EventEmitter<User>()
 
-  constructor( private formBuilder:FormBuilder){}
+  bgColor = 'blue'
+  constructor( private formBuilder:FormBuilder){
+    // initial properties
+    // dependency injectioncls
+
+    // event listener register!
+  }
+
   ngOnInit(): void {
+    // initial properties
+    // event listener register!
+    // initial api call.
     this.searchForm = new FormGroup({
       name : new FormControl('Start Search!')
     })
