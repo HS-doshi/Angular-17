@@ -8,7 +8,10 @@
       {{user.name + '\n' + user.employ}}
     }
     <hr/>
-    {{item.name}} - {{item.role}} - {{item.employ}}
+    {{item.name}} - {{item.role}} - {{item.employ}} - {{item.FE}} - {{item.salary}}
   </li>
 </div>
-<h3>Name - {{names}}</h3>
+<h3>Name - {{name}}</h3>
+<h3>Full time Employment - {{fe}}</h3>
+<h4>Salary : {{salary}}</h4>
+<button (click)="sendData()">Send Data</button>

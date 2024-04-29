@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, booleanAttribute} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable, debounceTime, distinct, elementAt, filter, first, from, last, of, skip, take, takeLast, takeWhile } from 'rxjs';
+import { User } from '../models/user';
 
 function TransformValue(value:string){
-  return 'Hii '+ value.split(' ').map(upper=>upper.charAt(0).toUpperCase()+ upper.slice(1)).join(' ')
+  return value;
 }
 
 @Component({
@@ -17,7 +18,6 @@ function TransformValue(value:string){
 
 export class SearchComponent implements OnInit{
   searchForm!:FormGroup;
-  name!:FormControl;
   compant =['Wellnest','RoyalNest','Royal','Cheese','RoyalNest','Royal','WellCheese']
   company$ :Observable<string> = from(this.compant)
 
@@ -25,7 +25,12 @@ export class SearchComponent implements OnInit{
   // @output decorator will useful for pass data from child to parent!
 
   // alias is used for as we given another name of in our parent component! -we pass here for access those data.
-  @Input({alias:'userName',transform:TransformValue}) names =''
+  @Input({alias:'userName',transform:TransformValue}) name =''
+  @Input({transform:booleanAttribute}) fe!:boolean
+  @Input() salary!:number
+
+  @Output() myEvent = new EventEmitter<User>()
+
   constructor( private formBuilder:FormBuilder){}
   ngOnInit(): void {
     this.searchForm = new FormGroup({
@@ -49,9 +54,12 @@ export class SearchComponent implements OnInit{
 
   }
   users=[
-    {name:'Heet',role:'Frontend Developer', employ : 'Internship'},
-    {name:'Prince',role:'Backend Developer', employ : 'Internship'},
-    {name:'Meet',role:'Frontend Developer', employ : 'Internship'},
-    {name:'Dev',role:'Testing', employ : 'Internship'},
-  ]
+    {name:'Heet',role:'Frontend Developer', employ : 'Internship',FE:true , salary:45000},
+    {name:'Prince',role:'Backend Developer', employ : 'Internship',FE:true, salary:44000},
+    {name:'Meet',role:'Frontend Developer', employ : 'Internship',FE:true , salary:40000},
+    {name:'Dev',role:'Testing', employ : 'Internship',FE:false, salary:40000},
+  ];
+  sendData(){
+    this.myEvent.emit({name: this.name, newSalary : 500000})
+  }
 }

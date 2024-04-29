@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Event, RouterOutlet } from '@angular/router';
 import { SearchComponent } from './search/search.component';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,17 @@ import { SearchComponent } from './search/search.component';
 })
 export class AppComponent {
   title = 'Rxjs';
+
+  users=[
+    {name:'Heet',role:'Frontend Developer', employ : 'Internship',FE:true ,  salary:45000},
+    {name:'Prince',role:'Backend Developer', employ : 'Internship',FE:true, salary:45000},
+    {name:'Meet',role:'Frontend Developer', employ : 'Internship',FE:true, salary:45000},
+    {name:'Dev',role:'Testing', employ : 'Internship',FE:false, salary:45000},
+  ]
+  recieveData(e:User){
+    console.log(e)
+
+    const findName =  this.users.findIndex(user=>user.name == e.name)
+    this.users[findName].salary = e.newSalary
+  }
 }
