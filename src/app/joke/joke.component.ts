@@ -15,9 +15,11 @@ export class JokeComponent implements OnInit{
   constructor(private jokeService: JokoService){}
 
   ngOnInit() {
-    this.jokeService.getjoke().subscribe((data:any)=>{
-
-      this.joke = data
+   this.getAnotherJoke()
+  }
+  getAnotherJoke(){
+    this.jokeService.getjoke().subscribe({
+      next:(data:any)=>this.joke = data.value
     })
   }
 }

@@ -4,11 +4,14 @@ import { Event, RouterOutlet } from '@angular/router';
 import { SearchComponent } from './search/search.component';
 import { User } from './models/user';
 import { JokeComponent } from './joke/joke.component';
+import { AComponent } from './component/a/a.component';
+import { BComponent } from './component/b/b.component';
+import { CComponent } from './component/c/c.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, SearchComponent,JokeComponent],
+  imports: [RouterOutlet, CommonModule, SearchComponent,JokeComponent, AComponent, BComponent, CComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
