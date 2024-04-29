@@ -5,13 +5,13 @@
 <div *ngFor="let item of users">
   <li>
     @for (user of users; track user.name) {
-      {{user.name + '\n' + user.employ}}
+      {{user.name + ' '  + user.employ + ' '| titlecase}}
     }
     <hr/>
-    {{item.name}} - {{item.role}} - {{item.employ}} - {{item.FE}} - {{item.salary}}
+    {{item.name | titlecase}} - {{item.role}} - {{item.employ}} - {{item.FE}} - {{item.salary | currency :'INR'}}
   </li>
 </div>
 <h3>Name - {{name}}</h3>
+<h4>Phone No : {{phoneNo | country:'USA'}}</h4>
 <h3>Full time Employment - {{fe}}</h3>
-<h4>Salary : {{salary}}</h4>
 <button (click)="sendData()">Send Data</button>

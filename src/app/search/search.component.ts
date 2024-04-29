@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output, booleanAttribute} from 
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable, debounceTime, distinct, elementAt, filter, first, from, last, of, skip, take, takeLast, takeWhile } from 'rxjs';
 import { User } from '../models/user';
+import { CountryPipe } from '../pipe/country.pipe';
 
 function TransformValue(value:string){
   return value;
@@ -11,7 +12,7 @@ function TransformValue(value:string){
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule, CountryPipe],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
@@ -20,6 +21,7 @@ export class SearchComponent implements OnInit{
   searchForm!:FormGroup;
   compant =['Wellnest','RoyalNest','Royal','Cheese','RoyalNest','Royal','WellCheese']
   company$ :Observable<string> = from(this.compant)
+  phoneNo = 8128185536
 
   // Input decorator useful for recieve data from parent to child!
   // @output decorator will useful for pass data from child to parent!
@@ -54,12 +56,12 @@ export class SearchComponent implements OnInit{
 
   }
   users=[
-    {name:'Heet',role:'Frontend Developer', employ : 'Internship',FE:true , salary:45000},
+    {name:'heet',role:'Frontend Developer', employ : 'Internship',FE:true , salary:45000},
     {name:'Prince',role:'Backend Developer', employ : 'Internship',FE:true, salary:44000},
     {name:'Meet',role:'Frontend Developer', employ : 'Internship',FE:true , salary:40000},
     {name:'Dev',role:'Testing', employ : 'Internship',FE:false, salary:40000},
   ];
   sendData(){
-    this.myEvent.emit({name: this.name, newSalary : 500000})
+    this.myEvent.emit({name: this.name, newSalary : this.salary})
   }
 }

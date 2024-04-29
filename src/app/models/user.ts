@@ -1,1 +1,1 @@
-export type User =  {name:string, newSalary:500000};
+export type User =  {name:string, newSalary:number};

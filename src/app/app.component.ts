@@ -16,9 +16,9 @@ export class AppComponent {
 
   users=[
     {name:'Heet',role:'Frontend Developer', employ : 'Internship',FE:true ,  salary:45000},
-    {name:'Prince',role:'Backend Developer', employ : 'Internship',FE:true, salary:45000},
-    {name:'Meet',role:'Frontend Developer', employ : 'Internship',FE:true, salary:45000},
-    {name:'Dev',role:'Testing', employ : 'Internship',FE:false, salary:45000},
+    {name:'Prince',role:'Backend Developer', employ : 'Internship',FE:true, salary:44000},
+    {name:'Meet',role:'Frontend Developer', employ : 'Internship',FE:true, salary:40000},
+    {name:'Dev',role:'Testing', employ : 'Internship',FE:false, salary:40000},
   ]
   recieveData(e:User){
     console.log(e)
