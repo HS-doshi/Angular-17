@@ -1,10 +1,11 @@
 <form class="container" [formGroup]="binForm">
   <h4>Please Enter Code Snippet</h4>
+    <br/>
     <input type="text" [formControl]="title" formControlName="title" placeholder="Enter Title : " required>
     <h5 class="t-red" [hidden]="title.valid ||  title.untouched">Title is required!</h5>
-
-    <input type="password" [formControl]="code" formControlName="code" placeholder="Code Snippet : " required>
+    <br/>
+    <textarea type="password" [formControl]="code" formControlName="code" placeholder="Code Snippet Here! " required></textarea>
     <h5 class="t-red" [hidden]="code.valid ||  code.untouched">Code is required!</h5>
-
-    <button *ngIf="binForm" class="btn-green" [disabled]="this.binForm.invalid" (click)="gotoBin()">Login</button>
+    <br/>
+    <button class="btn-green" [disabled]="this.binForm.invalid" (click)="gotoBin()">Create</button>
 </form>

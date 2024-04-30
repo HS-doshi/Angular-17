@@ -8,18 +8,21 @@ import { AComponent } from './component/a/a.component';
 import { BComponent } from './component/b/b.component';
 import { CComponent } from './component/c/c.component';
 import { NavbarComponent } from './project/components/navbar/navbar.component';
+import {initializeApp} from 'firebase/app'
+import { firebaseConfig } from '../../firebaseConfig';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, NavbarComponent,
-    SearchComponent,JokeComponent, AComponent, BComponent, CComponent],
+  imports: [RouterOutlet, CommonModule,NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Rxjs';
 
+  constructor(){
+    initializeApp(firebaseConfig)
+  }
   users=[
     {name:'Heet',role:'Frontend Developer', employ : 'Internship',FE:true ,  salary:45000},
     {name:'Prince',role:'Backend Developer', employ : 'Internship',FE:true, salary:44000},
