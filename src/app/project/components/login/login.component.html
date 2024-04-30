@@ -1,1 +1,13 @@
-<p>login works!</p>
+<form class="container" [formGroup]="loginForm">
+  <h4>Please Login!</h4>
+    <input type="email" [formControl]="email" formControlName="email" placeholder="Enter Email : " required>
+    <h5 class="t-red" [hidden]="email.valid ||  email.untouched">Please Enter Valid Email!</h5>
+
+    <input type="password" [formControl]="password" formControlName="password" placeholder="Enter Password : " required>
+    <h5 class="t-red" [hidden]="password.valid ||  password.untouched">Password is required & Must be greater then 6!</h5>
+
+    <button *ngIf="loginForm" class="btn-green" [disabled]="this.loginForm.invalid" (click)="login()">Login</button>
+    <button class="btn-red" (click)="reset()">Reset</button>
+</form>
+<!-- <button *ngIf="loginForm" class="btn-green" [disabled]="email.invalid || email.untouched && password.invalid || password.untouched" (click)="login()">Login</button> -->
+<!-- Above is another way for enable button logic! -->

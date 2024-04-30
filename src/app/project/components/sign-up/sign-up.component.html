@@ -1,1 +1,25 @@
-<p>sign-up works!</p>
+<form class="container" #registerForm="ngForm">
+  <h4>Please Sign Up!</h4>
+    <input type="email"
+    placeholder="Enter Email : "
+    pattern="^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$"
+    ngModel
+    name="email"
+    required #email="ngModel">
+    <h5 class="t-red" [hidden]="email.valid || email.untouched">Please Enter Valid Email!</h5>
+
+    <!-- Name attribute is must required in templated driven form!
+    the name attribute must be set or the form
+    control must be defined as 'standalone' in ngModelOption -->
+    <input type="password"
+    placeholder="Enter Password : "
+    #password="ngModel"
+    ngModel
+    minlength="6"
+    name="password"
+    required>
+    <h5 class="t-red" [hidden]="password.valid || password.untouched" >Password is required & Must be greater then 6!</h5>
+
+    <button [disabled]="registerForm.invalid"  class="btn-green" (click)="register(registerForm)">Sign Up</button>
+    <button  class="btn-red" (click)="reset(registerForm)">Reset</button>
+</form>

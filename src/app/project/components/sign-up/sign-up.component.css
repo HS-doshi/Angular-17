@@ -1,0 +1,46 @@
+.container{
+    margin: 46px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(22, 22, 22, 0.1);
+  }
+  h4{
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  input{
+    width: 100%;;
+    padding: 10px;
+    margin-bottom: 12px;
+    margin-top: 6px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .t-red{
+    color: red;
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+  .btn-green,.btn-red{
+    padding: 10px 18px;
+    border-radius: 3px;
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn-green{
+    background-color: #008000;
+  }
+  .btn-red{
+    background-color: #f44336;
+    margin-left: 15px;
+  }
+  .btn-green:disabled{
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
