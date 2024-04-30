@@ -1,0 +1,25 @@
+div{
+  margin: 10px;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+ul{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+li:hover{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+ul li a.active{
+  color: black;
+  font-weight: 800;
+}

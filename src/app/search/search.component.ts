@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output, booleanAttribute} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, booleanAttribute, input} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Observable, debounceTime, distinct, elementAt, filter, first, from, last, of, skip, take, takeLast, takeWhile } from 'rxjs';
 import { User } from '../models/user';
@@ -28,7 +28,10 @@ export class SearchComponent implements OnInit{
   // @output decorator will useful for pass data from child to parent!
 
   // alias is used for as we given another name of in our parent component! -we pass here for access those data.
-  @Input({alias:'userName',transform:TransformValue}) name =''
+  // @Input({alias:'userName',transform:TransformValue}) name =''
+  name = input('',{
+    alias:"userName"
+  })
   @Input({transform:booleanAttribute}) fe!:boolean
   @Input() salary!:number
 
@@ -46,6 +49,7 @@ export class SearchComponent implements OnInit{
     // initial properties
     // event listener register!
     // initial api call.
+    console.log('oninit called!',this.name())
     this.searchForm = new FormGroup({
       name : new FormControl('Start Search!')
     })
@@ -56,6 +60,7 @@ export class SearchComponent implements OnInit{
       })
       // distinct will give only unique values.
     })
+
   }
   checkChar(v:any){
     return v.length < 10 ? true : false
@@ -73,6 +78,6 @@ export class SearchComponent implements OnInit{
     {name:'Dev',role:'Testing', employ : 'Internship',FE:false, salary:40000},
   ];
   sendData(){
-    this.myEvent.emit({name: this.name, newSalary : this.salary})
+    this.myEvent.emit({name: this.name(), newSalary : this.salary})
   }
 }

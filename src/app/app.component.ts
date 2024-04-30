@@ -7,11 +7,13 @@ import { JokeComponent } from './joke/joke.component';
 import { AComponent } from './component/a/a.component';
 import { BComponent } from './component/b/b.component';
 import { CComponent } from './component/c/c.component';
+import { NavbarComponent } from './project/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, SearchComponent,JokeComponent, AComponent, BComponent, CComponent],
+  imports: [RouterOutlet, CommonModule, NavbarComponent,
+    SearchComponent,JokeComponent, AComponent, BComponent, CComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

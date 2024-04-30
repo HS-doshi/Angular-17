@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { RxjsComponent } from './rxjs/rxjs.component';
-import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './project/components/login/login.component';
+import { SignUpComponent } from './project/components/sign-up/sign-up.component';
+import { NavbarComponent } from './project/components/navbar/navbar.component';
 
 export const routes: Routes = [
-  {path:'', redirectTo:'rxjs-search',pathMatch:'full'},
-  {path:'rxjs-concept',component:RxjsComponent},
-  {path:'rxjs-search' , component:SearchComponent}
+  {path:'login', component:LoginComponent},
+  {path:'sign-up', component:SignUpComponent},
 ];

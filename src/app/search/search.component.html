@@ -11,7 +11,7 @@
     {{item.name | titlecase}} - {{item.role}} - {{item.employ}} - {{item.FE}} - {{item.salary | currency :'INR'}}
   </li>
 </div>
-<h3>Name - {{name}}</h3>
+<h3>Name - {{name()}}</h3>
 <h4 appHighlight>Phone No : {{phoneNo | country:'USA'}}</h4>
 <h3>Full time Employment - {{fe}}</h3>
 <button (click)="sendData()">Send Data</button>
