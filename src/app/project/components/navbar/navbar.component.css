@@ -17,9 +17,9 @@ li:hover{
 }
 a{
   text-decoration: none;
-  color: black;
+  color: #000;
 }
 ul li a.active{
-  color: black;
+  color: #0a0c7d;
   font-weight: 800;
 }

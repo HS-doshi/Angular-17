@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,10 +12,12 @@ import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 })
 export class SignUpComponent {
 
+  constructor(private router:Router){}
 
   register(regForm:NgForm){
     console.log(regForm.value)
     alert('Sign up Successfully!')
+    this.router.navigate(['login'])
   }
   reset(resetForm: NgForm){
     resetForm.reset();
