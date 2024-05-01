@@ -27,6 +27,12 @@ export class AuthService {
       }
     });
   }
+  isAuthenticated(){
+    return this.uid? true:false;
+  }
+  getUid(){
+    return this.uid;
+  }
 
   registerUser(email: string, password: string) {
     const auth = getAuth();
