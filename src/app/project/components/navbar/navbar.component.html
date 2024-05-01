@@ -3,10 +3,14 @@
     <h2 routerLink="" style="cursor: pointer;">Code-Vita</h2>
     <ul>
       <li><a routerLink="create" routerLinkActive="active" >Create</a></li>
-      <li><a routerLink="login" routerLinkActive="active" >Login</a></li>
-      <li><a routerLink="sign-up" routerLinkActive="active" >Sign Up</a></li>
+      @if (logoutService.isAuthenticated()) {
+        <li (click)="logOut()">Logout</li>
+      }
+      @else{
+        <li><a routerLink="login" routerLinkActive="active" >Login</a></li>
+        <li><a routerLink="sign-up" routerLinkActive="active" >Sign Up</a></li>
+      }
       <li><a routerLink="about" routerLinkActive="active" >About</a></li>
-      <li *ngIf="" (click)="logOut()">Logout</li>
     </ul>
   </nav>
   <hr>

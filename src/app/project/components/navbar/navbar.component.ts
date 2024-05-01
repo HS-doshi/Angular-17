@@ -13,7 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class NavbarComponent {
 
-  constructor(private logoutService  :AuthService){}
+  constructor(public logoutService  :AuthService){}
+
   logOut(){
     this.logoutService.userLogOut()
   }
