@@ -16,15 +16,13 @@ export const routes: Routes = [
 
 // authguard have a syntax of [authguard]  - we can canActive & pass authguard as a array!
   {path:'',redirectTo:'home', pathMatch:'full'},
-  {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
+  {path:'login', component:LoginComponent},
   {path:'sign-up', component:SignUpComponent},
-  {path:'snippets/:id', component:ViewSnippetComponent},
   {path:'create',  component:CreateBinComponent,canActivate:[authGuard]},
-  {path:'demo',  component:DeferdemoComponent},
-  {path:'heavy',  component:HeavyComponent},
   {path:'about', loadComponent:()=>import('./project/components/about/about.component')
-    .then(m=>m.AboutComponent)
+  .then(m=>m.AboutComponent)
   },
+  {path:'snippets/:id', component:ViewSnippetComponent},
   {path:'**', component:NotFoundComponent},
 ];
