@@ -12,13 +12,12 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent implements  OnInit{
 
-  constructor(private dbService : DbService){}
-  items :{id:string,title:string}[]=[];
-  ngOnInit(): void {
-    this.dbService.getAllSnippets().then((data:any)=>{
-      console.log('item  id : ',data)
+  constructor(private dbService: DbService) { }
+  items: {id:string,title:string}[]= []
+  ngOnInit() {
+    this.dbService.getAllSnippet().then((data: any) => {
+      console.log(data)
       this.items = data
-      console.log(this.items)
     })
   }
 }

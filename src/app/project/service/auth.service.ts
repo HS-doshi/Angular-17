@@ -18,7 +18,7 @@ export class AuthService {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
+        const uid = user.uid
         this.uid = uid
         console.log('User Logged in as ',user.email)
       } else {

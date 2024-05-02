@@ -27,16 +27,15 @@ export class DbService {
       alert('Error while creating!');
     }
   }
-  async getAllSnippets() {
-    let result :{id:string}[]=[];
-    const querySnapshot = await getDocs(collection(this.db, 'snippets'));
+  async getAllSnippet() {
+    let result: any[] = []
+    const querySnapshot = await getDocs(collection(this.db, "snippets"));
     querySnapshot.forEach((doc) => {
-      result.push({
-        id: doc.id, ...doc.data(),
-      })
+      result.push({ id: doc.id, ...doc.data() })
     });
-    return result;
+    return result
   }
+
   async getSnippetById(docId:string){
 
   const docRef = doc(this.db, "snippets",docId);
