@@ -36,6 +36,12 @@ export class LoginComponent {
       alert('Please Enter Valid Details!')
     }
   }
+  
+  forgotPassword(){
+    if(!this.loginForm.valid){
+      
+    }
+  }
   reset(){
     this.loginForm.reset();
   }
