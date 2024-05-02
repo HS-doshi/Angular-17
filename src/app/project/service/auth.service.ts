@@ -58,7 +58,7 @@ export class AuthService {
         const user = userCredential.user;
         console.log({ user });
         alert('Login Successfully!');
-        this.route.navigate(['home']);
+        this.route.navigate(['']);
       })
       .catch((error) => {
         const errorMessage = error.message;

@@ -4,7 +4,7 @@
       <li>No data</li>
     }
     @for (item of items; track item.id) {
-      <li><a [routerLink]="['/snippets',item.id]">{{item.title}}</a></li>
+      <li><a [routerLink]="['snippet',item.id]">{{item.title}}</a></li>
     }
   </ul>
 </div>

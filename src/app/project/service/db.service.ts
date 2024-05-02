@@ -44,7 +44,7 @@ export class DbService {
 
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data());
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
       return docSnap.data()
     } else {
       // docSnap.data() will be undefined in this case
