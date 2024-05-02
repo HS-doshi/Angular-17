@@ -4,13 +4,14 @@ import { collection, addDoc,getDoc } from 'firebase/firestore';
 import { AuthService } from './auth.service';
 import { title } from 'process';
 import { Snippet } from '../models/snippet';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class DbService {
   private db: any;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,private router:Router) {
     this.db = getFirestore();
   }
   async createSnippet(snippet: Snippet) {
@@ -43,6 +44,7 @@ export class DbService {
 
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data());
+      this.router.navigate(['home']);
       return docSnap.data()
     } else {
       // docSnap.data() will be undefined in this case

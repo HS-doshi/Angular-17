@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../service/db.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-view-snippet',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './view-snippet.component.html',
   styleUrl: './view-snippet.component.css'
 })
