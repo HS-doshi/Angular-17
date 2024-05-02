@@ -7,5 +7,5 @@
     <textarea type="password" [formControl]="code" formControlName="code" placeholder="Code Snippet Here! " required></textarea>
     <h5 class="t-red" [hidden]="code.valid ||  code.untouched">Code is required!</h5>
     <br/>
-    <button class="btn-green" [disabled]="this.binForm.invalid" (click)="gotoBin()">Create</button>
+    <button class="btn-green" [disabled]="this.binForm.invalid" (click)="save()">Create</button>
 </form>

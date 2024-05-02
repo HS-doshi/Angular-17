@@ -26,7 +26,7 @@ export class DbService {
       alert('Error while creating!');
     }
   }
-  async getAllSnippets() {
+  async getAllSnippets(snippet : Snippet) {
     let result :{id:string}[]=[];
     const querySnapshot = await getDocs(collection(this.db, 'snippets'));
     querySnapshot.forEach((doc) => {

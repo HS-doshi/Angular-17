@@ -27,9 +27,6 @@ export class CreateBinComponent {
   })
   async save(){
     await  this.dbService.createSnippet(this.binForm.value as Snippet)
+    await this.dbService.getAllSnippets(this.binForm.value as Snippet)
   }
-  gotoBin(){
-   console.log(this.binForm.value)
-  }
-
 }
