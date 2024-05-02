@@ -7,6 +7,8 @@ import { CreateBinComponent } from './project/components/create-bin/create-bin.c
 import { authGuard } from './project/components/auth.guard';
 import { HomeComponent } from './project/home/home.component';
 import { ViewSnippetComponent } from './project/view-snippet/view-snippet.component';
+import { DeferdemoComponent } from './project/components/deferdemo/deferdemo.component';
+import { HeavyComponent } from './project/components/heavy/heavy.component';
 
 export const routes: Routes = [
 // Important Note  : Type 'CanActivateFn' is not assignable to type 'any[]'.ts(2322)
@@ -19,6 +21,8 @@ export const routes: Routes = [
   {path:'sign-up', component:SignUpComponent},
   {path:'snippets/:id', component:ViewSnippetComponent},
   {path:'create',  component:CreateBinComponent,canActivate:[authGuard]},
+  {path:'demo',  component:DeferdemoComponent},
+  {path:'heavy',  component:HeavyComponent},
   {path:'about', loadComponent:()=>import('./project/components/about/about.component')
     .then(m=>m.AboutComponent)
   },
