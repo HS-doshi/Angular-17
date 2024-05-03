@@ -1,4 +1,4 @@
-import { environment } from "./environments.prod";
+import { environment } from "./environment.prod";
 export const firebaseConfig = {
     apiKey: environment.apiKey,
     authDomain: "codebin-ng-83577.firebaseapp.com",
