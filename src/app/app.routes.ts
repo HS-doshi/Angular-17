@@ -12,7 +12,8 @@ export const routes: Routes = [
 // index.d.ts(2586, 5): The expected type comes from property 'canActivate' which is declared here on type 'Route'
 
 // authguard have a syntax of [authguard]  - we can canActive & pass authguard as a array!
-  {path:'', component:HomeComponent},
+  {path:'', pathMatch:'full', redirectTo:'home'},
+  {path:'home', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'sign-up', component:SignUpComponent},
   {path:'create',  component:CreateBinComponent,canActivate:[authGuard]},

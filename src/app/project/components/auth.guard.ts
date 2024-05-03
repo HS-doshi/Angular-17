@@ -11,8 +11,8 @@ export const authGuard: CanActivateFn = () => {
   if(authService.isAuthenticated()){
     return true;
   }else{
-    alert('Please login & then create it!')
-    router.navigate(['login'])
+    alert('Please login & then You can create')
+    router.navigate([''])
     return false;
   }
 };

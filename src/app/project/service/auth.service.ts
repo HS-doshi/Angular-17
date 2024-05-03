@@ -58,7 +58,7 @@ export class AuthService {
         const user = userCredential.user;
         console.log({ user });
         alert('Login Successfully!');
-        this.route.navigate(['']);
+        this.route.navigate(['create']);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -72,6 +72,8 @@ export class AuthService {
       .then((e) =>
         {
           console.log(e)
+          alert('Are you sure want to logout?')
+
           alert('Logout Successfully!')
           this.route.navigate(['login'])
         })
